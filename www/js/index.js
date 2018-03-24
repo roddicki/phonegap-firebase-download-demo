@@ -5,7 +5,12 @@ ons.ready(function() {
 
 	// Initialize Firebase
 	var config = {
-		
+		apiKey: "AIzaSyDOoUezKPivRQbKI_dBpQC7X4aUB0vit_I",
+		authDomain: "audio-retrieve-test.firebaseapp.com",
+		databaseURL: "https://audio-retrieve-test.firebaseio.com",
+		projectId: "audio-retrieve-test",
+		storageBucket: "audio-retrieve-test.appspot.com",
+		messagingSenderId: "899690313623"
 	};
 	firebase.initializeApp(config);
 	console.log(firebase);
@@ -61,7 +66,7 @@ ons.ready(function() {
 	}
 
 	//create a play audio button - for testing
-	//uses the cordova-plugin-media and audio-player.js
+	//uses the cordova-plugin-media
 	function createPlayBtn(filepath, name){
 	  var button = document.createElement('button');
 	  button.textContent = "play " + name + "'s audio";
@@ -70,9 +75,16 @@ ons.ready(function() {
 	  document.getElementById('output').appendChild(button);  //attach it to the div id=output
 	  document.getElementById(name + "-audio").addEventListener('click', function(){
 	  	ons.notification.alert('This will play ' + name + "'s audio");
-	  	audio.play(filepath); //uses the cordova-plugin-media and audio-player.js
+	  	playAudio(filepath);
 	  })
 	}
+
+	function playAudio(filepath){
+		var myMedia = new Media(filepath);
+		myMedia.play({ playAudioWhenScreenIsLocked : true });
+		myMedia.setVolume('1.0');
+	}
+	
 
 
 });

@@ -18,4 +18,7 @@ Add your own  firebase config in index.js
 		messagingSenderId: ""
 	};
 
+(Matt use the config info for the database you already have working).
+
+This app will also work on the phpnegap mobile developer app.
 

@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.roddickinson.template" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Onsen Test</name>
+<widget id="com.roddickinson.firebase" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Firebase download</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Firebase download demo. Download and play audio and display text
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team

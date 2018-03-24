@@ -5,12 +5,7 @@ ons.ready(function() {
 
 	// Initialize Firebase
 	var config = {
-		apiKey: "AIzaSyDOoUezKPivRQbKI_dBpQC7X4aUB0vit_I",
-		authDomain: "audio-retrieve-test.firebaseapp.com",
-		databaseURL: "https://audio-retrieve-test.firebaseio.com",
-		projectId: "audio-retrieve-test",
-		storageBucket: "audio-retrieve-test.appspot.com",
-		messagingSenderId: "899690313623"
+		
 	};
 	firebase.initializeApp(config);
 	console.log(firebase);

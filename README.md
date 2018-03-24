@@ -7,6 +7,7 @@ Create a new phonegap project using Phonegap cli or desktop app.
 Replace the www directory with this demo / working repository.
 
 Add your own  firebase config in index.js
+
 	// Initialize Firebase
 	var config = {
 		apiKey: "",

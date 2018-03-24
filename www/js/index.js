@@ -72,7 +72,8 @@ ons.ready(function() {
 	  button.textContent = "play " + name + "'s audio";
 	  button.setAttribute('class', 'button');
 	  button.id = name + "-audio";
-	  document.getElementById('output').appendChild(button);  //attach it to the div id=output
+	  document.getElementById('output').appendChild(button);  //attach it to the div id='output'
+	  //make an event listener for each button to listen for a click (show alert and play audio)
 	  document.getElementById(name + "-audio").addEventListener('click', function(){
 	  	ons.notification.alert('This will play ' + name + "'s audio");
 	  	playAudio(filepath);

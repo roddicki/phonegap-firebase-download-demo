@@ -5,12 +5,12 @@ ons.ready(function() {
 
 	// Initialize Firebase
 	var config = {
-		apiKey: "AIzaSyDOoUezKPivRQbKI_dBpQC7X4aUB0vit_I",
-		authDomain: "audio-retrieve-test.firebaseapp.com",
-		databaseURL: "https://audio-retrieve-test.firebaseio.com",
-		projectId: "audio-retrieve-test",
-		storageBucket: "audio-retrieve-test.appspot.com",
-		messagingSenderId: "899690313623"
+		apiKey: "",
+		authDomain: "",
+		databaseURL: "",
+		projectId: "",
+		storageBucket: "",
+		messagingSenderId: ""
 	};
 	firebase.initializeApp(config);
 	console.log(firebase);
@@ -79,6 +79,7 @@ ons.ready(function() {
 	  })
 	}
 
+	//play the remote m4a file
 	function playAudio(filepath){
 		var myMedia = new Media(filepath);
 		myMedia.play({ playAudioWhenScreenIsLocked : true });

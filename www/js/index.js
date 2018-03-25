@@ -34,7 +34,6 @@ ons.ready(function() {
 	    console.log(title, name, longitude, latitude);
 	    console.log(JSON.stringify(stories[k]));
 	    createPara(name, title, latitude, longitude);
-	    createAudio(stories[k].audioFile);
 	    createPlayBtn(stories[k].audioFile, name);
 	  }
 	}
@@ -47,40 +46,42 @@ ons.ready(function() {
 	//create and output paragraph tag with all the data inside it
 	//this runs for every iteration of the loop
 	function createPara(name, title, lat, lng) {
+	  //create <p>
 	  var p = document.createElement('p');
 	  p.id = name;
 	  p.innerHTML = name + "<br>" + title + ", LatLng:" + lat  + ", " +  lng;
 	  document.getElementById('output').appendChild(p);  //attach it to the div id=output
 	}
 
-	//create and output audio tag 
-	//this runs for every iteration of the loop
-	function createAudio(filepath){
-	  var audio = document.createElement('audio');
-	  var source = document.createElement('source');
-	  source.src = filepath;
-	  source.type = "audio/mp4";
-	  audio.controls = "true";
-	  audio.appendChild(source);
-	  document.getElementById('output').appendChild(audio); //attach it to the div id=output         
+	//create random unique string for the id of each button
+	function makeId() {
+		var uniqueId = Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);
+		return uniqueId;
 	}
 
-	//create a play audio button - for testing
-	//uses the cordova-plugin-media
+
+	//create a button to play audio - for testing
 	function createPlayBtn(filepath, name){
+	  //make random string
+	  var uniqueId = makeId();
+	  //create <button>
 	  var button = document.createElement('button');
 	  button.textContent = "play " + name + "'s audio";
 	  button.setAttribute('class', 'button');
-	  button.id = name + "-audio";
-	  document.getElementById('output').appendChild(button);  //attach it to the div id='output'
+	  button.id = uniqueId + "-audio";
+	  //attach <button> it to the <div id='output'>
+	  document.getElementById('output').appendChild(button);  
 	  //make an event listener for each button to listen for a click (show alert and play audio)
-	  document.getElementById(name + "-audio").addEventListener('click', function(){
+	  document.getElementById(uniqueId + "-audio").addEventListener('click', function(){
 	  	ons.notification.alert('This will play ' + name + "'s audio");
 	  	playAudio(filepath);
-	  })
+	  });
 	}
 
+	
+
 	//play the remote m4a file
+	//uses the cordova-plugin-media
 	function playAudio(filepath){
 		var myMedia = new Media(filepath);
 		myMedia.play({ playAudioWhenScreenIsLocked : true });
